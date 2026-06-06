@@ -11,8 +11,7 @@ public class MyModel
 }
 
 [ApiController]
-[Route("api/[controller]")]
-public class HomeController : ControllerBase
+public class UserController : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<MyModel>> BlaBlaBla(int id)
@@ -35,6 +34,28 @@ public class HomeController : ControllerBase
     public async Task<IActionResult> Create()
     {
         return Ok();
+    }
+}
+
+[ApiController]
+[Route("api/[controller]")]
+public class HomeController : ControllerBase
+{
+    [HttpGet]
+    public async Task<ActionResult<MyModel>> BlaBlaBla(int id)
+    {
+        var model = new MyModel { Name = "John", Age = 20 };
+        
+        if(id <= 0)
+        {
+            return BadRequest();
+        }
+
+        var a = new List<int>().First();
+
+        Created();
+        NoContent();
+        return Ok(model);
     }
 }
 
