@@ -30,6 +30,12 @@ public class HomeController : ControllerBase
         NoContent();
         return Ok(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Create()
+    {
+        return Ok();
+    }
 }
 
 [ApiController]
